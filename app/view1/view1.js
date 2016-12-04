@@ -32,40 +32,39 @@ $scope.markups = {
       var foodMarkupCost = markupAmounts.foodCost(this.startRate);
       return foodMarkupCost;
     }
-    else{
-      return foodMarkupCost = 0;
-    }
+    else{ return foodMarkupCost = 0; }
   },
   isPharm: function(){
-  // var startRate = this.startRate;
-  // console.log('afsljkadfs');
     if($scope.pharmSelected === true){
 
       var pharmMarkupCost = markupAmounts.pharmCost(this.startRate);
-
       return pharmMarkupCost;
     }
     else{
-      var pharmMarkupCost = 0;
-      return pharmMarkupCost;
+      return pharmMarkupCost = 0;
     }
-
   },
   isElectronic: function(){
-    // var startRate = this.startRate;
    if($scope.electronicSelected === true){
      var electronicMarkupCost = markupAmounts.electronicCost(this.startRate);
-
      return electronicMarkupCost;
    }
    else{
-     var electronicMarkupCost = 0;
-     return electronicMarkupCost;
+     return electronicMarkupCost = 0;
    }
 
  },
+ finalCost: function(){
+   //do i want to do calculation here or in service ... **
+   // come back to this once it works.
+   return parseFloat($scope.markups.price())
+   + parseFloat($scope.markups.people())
+   + parseFloat($scope.markups.isFood())
+   + parseFloat($scope.markups.isPharm())
+   + parseFloat($scope.markups.isElectronic())
+   + parseFloat(this.startRate)
+ }
 }
-// markupAmounts.getStartRate(this.startRate);
 
 }])
 .service('markupAmounts', function(){
