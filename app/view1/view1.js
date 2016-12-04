@@ -11,6 +11,7 @@ angular.module('myApp.view1', ['ngRoute'])
 
 .controller('MarkupCtrl', ['$scope', 'markupAmounts', function($scope, markupAmounts) {
 // returned scope object w/ markup values
+// var startRate = {startRate:0};
 
 $scope.markups = {
   startRate: 1299.99, // inital value
@@ -49,8 +50,22 @@ $scope.markups = {
       return pharmMarkupCost;
     }
 
-  }
+  },
+  isElectronic: function(){
+    // var startRate = this.startRate;
+   if($scope.electronicSelected === true){
+     var electronicMarkupCost = markupAmounts.electronicCost(this.startRate);
+
+     return electronicMarkupCost;
+   }
+   else{
+     var electronicMarkupCost = 0;
+     return electronicMarkupCost;
+   }
+
+ },
 }
+// markupAmounts.getStartRate(this.startRate);
 
 }])
 .service('markupAmounts', function(){
@@ -75,6 +90,7 @@ $scope.markups = {
   }
 
   var foodCost = function(startRate){
+      // getStartRate(parseFloat(startRate));
     var getStartRate = {
       startRate:startRate
     }
@@ -91,12 +107,22 @@ $scope.markups = {
        return pharmMarkupCost;
   }
 
+  var electronicCost = function(startRate){
+   var getStartRate = {
+     startRate:startRate
+   }
+
+   var electronicMarkupCost = 0.02 * (parseFloat(flatRate(startRate)) + parseFloat(startRate));
+   return electronicMarkupCost;
+  }
+
 
 return {
   flatRate: flatRate,
   noOfPeople: noOfPeople,
   foodCost: foodCost,
-  pharmCost: pharmCost
+  pharmCost: pharmCost,
+  electronicCost: electronicCost
 }
 
 })
