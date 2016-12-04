@@ -45,9 +45,9 @@
 		</tr>
 
 		<tr>
-			<td><input id="isElectronic" type="checkbox"  />
+			<td><input id="isElectronic" type="checkbox" ng-model="electronicSelected"  />
         <label for="isElectronic">Electronics Markup:</label></td>
-			<td> {{ will be electronic cost (if applicable) </td>
+			<td> {{ markups.isElectronic() | currency }}</td>
 		</tr>
 
 		<tr>
