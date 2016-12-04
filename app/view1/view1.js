@@ -44,14 +44,24 @@ $scope.markups = {
       startRate:startRate,
       numberOfPeople:numberOfPeople
     }
-    var peopleCalculation = (parseFloat(flatRate(startRate)) + parseFloat(startRate)) *  (numberOfPeople * (1.2/100));
+    var peopleCalculation = (parseFloat(flatRate(startRate)) + parseFloat(startRate)) *  (numberOfPeople * 0.012);
 
     return peopleCalculation
   }
 
+  var foodCost = function(startRate){
+    var getStartRate = {
+      startRate:startRate
+    }
+    console.log('what is startrate', startRate)
+    var foodMarkupCost = .13 * startRate + startRate
+    return foodMarkupCost;
+  }
+
 return {
   flatRate: flatRate,
-  noOfPeople: noOfPeople
+  noOfPeople: noOfPeople,
+  foodCost: foodCost
 }
 
 })
