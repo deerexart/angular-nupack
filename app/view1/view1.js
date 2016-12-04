@@ -63,7 +63,7 @@ $scope.markups = {
     var getStartRate = {
       startRate:startRate
     }
-    var foodMarkupCost = .13 * startRate + startRate
+    var foodMarkupCost = .13 * (parseFloat(flatRate(startRate)) + parseFloat(startRate)) ;
     return foodMarkupCost;
   }
 
