@@ -12,12 +12,12 @@
 		<tr>
 			<td>Enter Start Rate</td>
 			<td>
-				<input type="text" name="start-rate"  />
+				<input type="text" name="start-rate" ng-model="markups.startRate"  />
 			</td>
 		</tr>
 		<tr>
 			<td>Job Markup 5%:</td>
-			<td>{{ will be job markup + start rate number }}</td>
+			<td>{{ markups.price() | currency }}</td>
 		</tr>
 
 		<tr>
@@ -27,31 +27,31 @@
 
 		<tr>
 			<td># People Markup</td>
-			<td>{{will be cost of people, depending on # entered in people input  }}</td>
+			<td>{{ markups.people() | currency }}</td>
 		</tr>
 
 		<tr>
 			<td><input id="isFood" type="checkbox" />
         <label for="isFood">Food Markup:</label></td>
-			<td>{{ Will be food cost (if applicable) }}</td>
+			<td>{{ Will be food cost (if applicable) </td>
 		</tr>
 
 		<tr>
 			<td>
 		<input id="isPharm" type="checkbox" />
         <label for="isPharm">Pharm Markup:</label></td>
-			<td>{{ will be pharm cost (if applicable) }}</td>
+			<td>{{ will be pharm cost (if applicable) </td>
 		</tr>
 
 		<tr>
 			<td><input id="isElectronic" type="checkbox"  />
         <label for="isElectronic">Electronics Markup:</label></td>
-			<td> {{ will be electronic cost (if applicable) }}</td>
+			<td> {{ will be electronic cost (if applicable) </td>
 		</tr>
 
 		<tr>
 			<td><strong>Final Cost Estimate</strong></td>
-			<td><strong> {{ will be final cost }} </strong></td>
+			<td><strong> {{ will be final cost  </strong></td>
 		</tr>
 		</tbody>
 
