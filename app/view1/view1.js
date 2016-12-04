@@ -24,6 +24,16 @@ $scope.markups = {
     var numberOfPeople = this.numberOfPeople;
     var peopleCalculation = markupAmounts.noOfPeople(this.numberOfPeople, this.startRate);
     return peopleCalculation;
+  },
+  isFood: function(){
+    // so if food has been checked.. do calculation aka use our foodCost service method
+    if($scope.foodSelected === true){
+      var foodMarkupCost = markupAmounts.foodCost(this.startRate);
+      return foodMarkupCost;
+    }
+    else{
+      return foodMarkupCost = 0;
+    }
   }
 }
 
@@ -53,7 +63,6 @@ $scope.markups = {
     var getStartRate = {
       startRate:startRate
     }
-    console.log('what is startrate', startRate)
     var foodMarkupCost = .13 * startRate + startRate
     return foodMarkupCost;
   }
