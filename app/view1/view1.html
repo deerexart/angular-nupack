@@ -39,9 +39,9 @@
 
 		<tr>
 			<td>
-		<input id="isPharm" type="checkbox" />
+		<input id="isPharm" type="checkbox" ng-model="pharmSelected" />
         <label for="isPharm">Pharm Markup:</label></td>
-			<td>{{ will be pharm cost (if applicable) </td>
+			<td>{{ markups.isPharm() | currency  }} </td>
 		</tr>
 
 		<tr>

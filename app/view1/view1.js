@@ -34,6 +34,21 @@ $scope.markups = {
     else{
       return foodMarkupCost = 0;
     }
+  },
+  isPharm: function(){
+  // var startRate = this.startRate;
+  // console.log('afsljkadfs');
+    if($scope.pharmSelected === true){
+
+      var pharmMarkupCost = markupAmounts.pharmCost(this.startRate);
+
+      return pharmMarkupCost;
+    }
+    else{
+      var pharmMarkupCost = 0;
+      return pharmMarkupCost;
+    }
+
   }
 }
 
@@ -50,7 +65,7 @@ $scope.markups = {
   }
 
   var noOfPeople = function(numberOfPeople, startRate){
-    var getMarkups = {
+    var getStartRate = {
       startRate:startRate,
       numberOfPeople:numberOfPeople
     }
@@ -67,10 +82,21 @@ $scope.markups = {
     return foodMarkupCost;
   }
 
+  var pharmCost = function(startRate){
+   var getStartRate = {
+     startRate:startRate
+   }
+
+       var pharmMarkupCost = (7.5/100) * (parseFloat(flatRate(startRate)) + parseFloat(startRate)) ;
+       return pharmMarkupCost;
+  }
+
+
 return {
   flatRate: flatRate,
   noOfPeople: noOfPeople,
-  foodCost: foodCost
+  foodCost: foodCost,
+  pharmCost: pharmCost
 }
 
 })
