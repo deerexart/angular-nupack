@@ -1,2 +1,60 @@
 
-test ing 
+<div style="width:100%; position:relative; padding:0 20px">
+<h2>AngularJS Markup Calculator</h2>
+
+
+<table>
+	<thead>
+		<th>Markup</th>
+		<th>Cost</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Enter Start Rate</td>
+			<td>
+				<input type="text" name="start-rate"  />
+			</td>
+		</tr>
+		<tr>
+			<td>Job Markup 5%:</td>
+			<td>{{ will be job markup + start rate number }}</td>
+		</tr>
+
+		<tr>
+			<td>Enter # of People</td>
+			<td><input id="testforPeople" type="text" name="no-of-people"  /></td>
+		</tr>
+
+		<tr>
+			<td># People Markup</td>
+			<td>{{will be cost of people, depending on # entered in people input  }}</td>
+		</tr>
+
+		<tr>
+			<td><input id="isFood" type="checkbox" />
+        <label for="isFood">Food Markup:</label></td>
+			<td>{{ Will be food cost (if applicable) }}</td>
+		</tr>
+
+		<tr>
+			<td>
+		<input id="isPharm" type="checkbox" />
+        <label for="isPharm">Pharm Markup:</label></td>
+			<td>{{ will be pharm cost (if applicable) }}</td>
+		</tr>
+
+		<tr>
+			<td><input id="isElectronic" type="checkbox"  />
+        <label for="isElectronic">Electronics Markup:</label></td>
+			<td> {{ will be electronic cost (if applicable) }}</td>
+		</tr>
+
+		<tr>
+			<td><strong>Final Cost Estimate</strong></td>
+			<td><strong> {{ will be final cost }} </strong></td>
+		</tr>
+		</tbody>
+
+</table>
+
+</div>

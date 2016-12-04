@@ -23,3 +23,17 @@
   content: "|";
   padding-right: 0.3em;
 }
+
+thead{
+  text-align: left;
+}
+
+tr td{
+  padding: 10px;
+}
+input[type=text]{
+border:3px solid lightgreen;
+padding:3px;
+display: block;
+width:100px
+}
