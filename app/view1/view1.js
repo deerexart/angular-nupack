@@ -101,8 +101,7 @@ $scope.markups = {
    var getStartRate = {
      startRate:startRate
    }
-
-       var pharmMarkupCost = (7.5/100) * (parseFloat(flatRate(startRate)) + parseFloat(startRate)) ;
+  var pharmMarkupCost = 0.075 * (parseFloat(flatRate(startRate)) + parseFloat(startRate)) ;
        return pharmMarkupCost;
   }
 
@@ -110,7 +109,6 @@ $scope.markups = {
    var getStartRate = {
      startRate:startRate
    }
-
    var electronicMarkupCost = 0.02 * (parseFloat(flatRate(startRate)) + parseFloat(startRate));
    return electronicMarkupCost;
   }
