@@ -160,6 +160,23 @@ describe('MarkupCtrl', function(){
           var noOfPeople = 3;
           expect(service.noOfPeople(noOfPeople,startRate)).toBe(49.139622);
         });
+        it('food markup should equal 177.448635', function() {
+          var service = createService();
+          var startRate = 1299.99;
+          expect(service.foodCost(startRate)).toBe(177.448635);
+        });
+
+        it('electronics markup should equal 177.448635', function() {
+          var service = createService();
+          var startRate = 1299.99;
+          expect(service.electronicCost(startRate)).toBe(27.299789999999998);
+        });
+        
+        it('electronics markup should equal 177.448635', function() {
+          var service = createService();
+          var startRate = 1299.99;
+          expect(service.pharmCost(startRate)).toBe(102.37421249999998);
+        });
       });
     });
 
