@@ -80,9 +80,27 @@ describe('MarkupCtrl', function(){
           expect(markups.isElectronic).toEqual(jasmine.any(Function));
           expect(markups.isPharm).toEqual(jasmine.any(Function));
           expect(markups.finalCost).toEqual(jasmine.any(Function));
+       });
 
+       it("checking scope methods are returning correct values after they run",
+       function(){
+         var startRate = $scope.markups.startRate;
+          $scope.foodSelected = true;
 
-
+         expect($scope.markups.startRate).toBe(1299.99);
+         expect($scope.markups.numberOfPeople).toBe(3);
+         expect($scope.markups.price(startRate)).toBe(64.9995);
+         expect($scope.markups.people(startRate)).toBe(49.139622);
+       });
+       it("isFood method will return 177.448635 if foodSelect is true", function(){
+         var startRate = $scope.markups.startRate;
+          $scope.foodSelected = true;
+          expect($scope.markups.isFood(startRate)).toBe(177.448635);
+       });
+       it("isFood method will return 0 if foodSelect is false", function(){
+         var startRate = $scope.markups.startRate;
+          $scope.foodSelected = false;
+          expect($scope.markups.isFood(startRate)).toBe(0);
        });
 
     });
