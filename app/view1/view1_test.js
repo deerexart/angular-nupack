@@ -151,13 +151,15 @@ describe('MarkupCtrl', function(){
 
         it('flatrate (job markup rate) should be 64.9995', function() {
           var service = createService();
-
           var startRate = 1299.99;
           expect(service.flatRate(startRate)).toBe(64.9995);
-
-
         });
-
+        it('people markup should equal 49.139622', function() {
+          var service = createService();
+          var startRate = 1299.99;
+          var noOfPeople = 3;
+          expect(service.noOfPeople(noOfPeople,startRate)).toBe(49.139622);
+        });
       });
     });
 
