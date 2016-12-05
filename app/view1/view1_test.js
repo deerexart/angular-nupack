@@ -149,7 +149,14 @@ describe('MarkupCtrl', function(){
         expect(service).toEqual(jasmine.any(Object));
         });
 
+        it('flatrate (job markup rate) should be 64.9995', function() {
+          var service = createService();
 
+          var startRate = 1299.99;
+          expect(service.flatRate(startRate)).toBe(64.9995);
+
+
+        });
 
       });
     });
