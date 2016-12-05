@@ -102,6 +102,27 @@ describe('MarkupCtrl', function(){
           $scope.foodSelected = false;
           expect($scope.markups.isFood(startRate)).toBe(0);
        });
+       it("isPharm will return 102 if pharmSelect is true", function(){
+         var startRate = $scope.markups.startRate;
+          $scope.pharmSelected = true;
+          expect($scope.markups.isPharm(startRate)).toBe(102.37421249999998);
+       });
+       it("isPharm will return 0 if pharmSelect is false", function(){
+         var startRate = $scope.markups.startRate;
+          $scope.pharmSelected = false;
+          expect($scope.markups.isPharm(startRate)).toBe(0);
+       });
+
+       it("isElectronic will return 102 if electronicSelected is true", function(){
+         var startRate = $scope.markups.startRate;
+          $scope.electronicSelected = true;
+          expect($scope.markups.isElectronic(startRate)).toBe(27.299789999999998);
+       });
+       it("isElectronic will return 0 if electronicSelected is false", function(){
+         var startRate = $scope.markups.startRate;
+          $scope.electronicSelected = false;
+          expect($scope.markups.isElectronic(startRate)).toBe(0);
+       });
 
     });
 
