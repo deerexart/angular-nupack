@@ -42,9 +42,6 @@ describe('MarkupCtrl', function(){
        isPharm: Function,
        finalCost:Function
      };
-
-  // spyOn(markups, 'isFood');
-  // markups.isFood(1299.99);
    });
 
  describe("MarkupCtrl controller to be definedddd", function() {
@@ -114,27 +111,34 @@ describe('MarkupCtrl', function(){
           expect(markupAmounts.foodCost).toHaveBeenCalledWith(startRate);
 
        });
-       it('THIS TEST SHOULD FAIL $scope.foodSelected = false, foodCost will not be called', function(){
-         var startRate = $scope.markups.startRate;
-          $scope.foodSelected = false;
-          spyOn(markupAmounts, 'foodCost');
-          $scope.markups.isFood(startRate);
-          //this should fail because food cost is only called when food checkbox ($scope.foodSelected) is selected (true);
-          // since it is not, this should throw an error
-          expect(markupAmounts.foodCost).toHaveBeenCalledWith(startRate);
-
-       });
+      //  it('THIS TEST WILL FAIL $scope.foodSelected = false, foodCost will not be called', function(){
+      //    var startRate = $scope.markups.startRate;
+      //     $scope.foodSelected = false;
+      //     spyOn(markupAmounts, 'foodCost');
+      //     $scope.markups.isFood(startRate);
+      //     //this should fail because food cost is only called when food checkbox ($scope.foodSelected) is selected (true);
+      //     // since it is not, this should throw an error
+      //     expect(markupAmounts.foodCost).toHaveBeenCalledWith(startRate);
+       //
+      //  });
        it(' $scope.foodSelected = false, foodCost will not be called', function(){
          var startRate = $scope.markups.startRate;
           $scope.foodSelected = false;
           spyOn(markupAmounts, 'foodCost');
           $scope.markups.isFood(startRate);
-          //this should fail because food cost is only called when food checkbox ($scope.foodSelected) is selected (true);
-          // since it is not, this should throw an error
           expect(markupAmounts.foodCost).not.toHaveBeenCalledWith(startRate);
 
-       })
-      
+       });
+       it("IF PHARMSELECTED IS TRUE *** isPharm startRate will call service markupAmounts.pharmCost", function(){
+         //will pass
+         var startRate = $scope.markups.startRate;
+          $scope.pharmSelected = true;
+          spyOn(markupAmounts, 'pharmCost');
+          $scope.markups.isPharm(startRate);
+          expect(markupAmounts.pharmCost).toHaveBeenCalledWith(startRate);
+
+       });
+
        it("isPharm will return 102 if pharmSelect is true", function(){
          var startRate = $scope.markups.startRate;
           $scope.pharmSelected = true;
@@ -155,6 +159,15 @@ describe('MarkupCtrl', function(){
          var startRate = $scope.markups.startRate;
           $scope.electronicSelected = false;
           expect($scope.markups.isElectronic(startRate)).toBe(0);
+       });
+       it("IF ELECTRONICSELECTED IS TRUE *** isElectronic startRate will call service markupAmounts.electronicCost", function(){
+
+         var startRate = $scope.markups.startRate;
+          $scope.electronicSelected = true;
+          spyOn(markupAmounts, 'electronicCost');
+          $scope.markups.isElectronic(startRate);
+          expect(markupAmounts.electronicCost).toHaveBeenCalledWith(startRate);
+
        });
 
     });
