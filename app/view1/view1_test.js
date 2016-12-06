@@ -42,6 +42,9 @@ describe('MarkupCtrl', function(){
        isPharm: Function,
        finalCost:Function
      };
+
+  // spyOn(markups, 'isFood');
+  // markups.isFood(1299.99);
    });
 
  describe("MarkupCtrl controller to be definedddd", function() {
@@ -96,12 +99,42 @@ describe('MarkupCtrl', function(){
          var startRate = $scope.markups.startRate;
           $scope.foodSelected = true;
           expect($scope.markups.isFood(startRate)).toBe(177.448635);
+
        });
        it("isFood method will return 0 if foodSelect is false", function(){
          var startRate = $scope.markups.startRate;
           $scope.foodSelected = false;
           expect($scope.markups.isFood(startRate)).toBe(0);
        });
+       it("IF FOODSELECTED IS TRUE *** isFood startRate will call service markupAmounts.foodCost", function(){
+         var startRate = $scope.markups.startRate;
+          $scope.foodSelected = true;
+          spyOn(markupAmounts, 'foodCost');
+          $scope.markups.isFood(startRate);
+          expect(markupAmounts.foodCost).toHaveBeenCalledWith(startRate);
+
+       });
+       it('THIS TEST SHOULD FAIL $scope.foodSelected = false, foodCost will not be called', function(){
+         var startRate = $scope.markups.startRate;
+          $scope.foodSelected = false;
+          spyOn(markupAmounts, 'foodCost');
+          $scope.markups.isFood(startRate);
+          //this should fail because food cost is only called when food checkbox ($scope.foodSelected) is selected (true);
+          // since it is not, this should throw an error
+          expect(markupAmounts.foodCost).toHaveBeenCalledWith(startRate);
+
+       });
+       it(' $scope.foodSelected = false, foodCost will not be called', function(){
+         var startRate = $scope.markups.startRate;
+          $scope.foodSelected = false;
+          spyOn(markupAmounts, 'foodCost');
+          $scope.markups.isFood(startRate);
+          //this should fail because food cost is only called when food checkbox ($scope.foodSelected) is selected (true);
+          // since it is not, this should throw an error
+          expect(markupAmounts.foodCost).not.toHaveBeenCalledWith(startRate);
+
+       })
+      
        it("isPharm will return 102 if pharmSelect is true", function(){
          var startRate = $scope.markups.startRate;
           $scope.pharmSelected = true;
@@ -171,7 +204,7 @@ describe('MarkupCtrl', function(){
           var startRate = 1299.99;
           expect(service.electronicCost(startRate)).toBe(27.299789999999998);
         });
-        
+
         it('electronics markup should equal 177.448635', function() {
           var service = createService();
           var startRate = 1299.99;
