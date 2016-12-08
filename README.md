@@ -1,12 +1,15 @@
-Test Read me For Commit
+All you have to do:
 
--> future steps to clone use project
+Installation:
 
-To use in browser:
+1. Clone project
+2. run npm install
 
-1. Git Clone project
-2. Npm install
-3. Npm start (will boot up localhost:8000)
+Serve:
+1. run npm start
 
-To Run Tests:
-1. npm test
+Test:
+1. run npm test
+
+
+That's it.  package.json has all dependencies needed
