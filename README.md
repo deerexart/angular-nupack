@@ -9,6 +9,11 @@ Serve:
 Test:
 1. run npm test
 
+Runtime Versions:
+Node : v4.4.7
+Karma : 4.0.3
+Jasimine: 4.0.3
+AngularJS: 4.0.3
 
 That's it.  package.json has all dependencies needed
 
